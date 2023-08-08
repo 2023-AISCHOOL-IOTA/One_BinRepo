@@ -37,7 +37,7 @@ def extract_lowest_number(text_list):
 def send_to_mqtt(topic, message):
     client = mqtt.Client()
    
-    client.connect("192.168.20.36 (라즈베리파이 IP 주소)", 1883, 60)
+    client.connect("192.168.21.125 (라즈베리파이 IP 주소)", 1883, 60)
    
     client.publish(topic, message)
 
@@ -52,11 +52,11 @@ def main():
     arduino = serial.Serial('/dev/ttyUSB0', 9600)
 
     while True:
+        camera.start_preview()
+        time.sleep(20)
+
         current_time = time.strftime(" %Y-%m-%d %H:%M:%S", time.localtime())
         print("현재 시간:", current_time)
-       
-        camera.start_preview()
-        time.sleep(5)
        
         stream = io.BytesIO()
         camera.capture(stream, format='jpeg')
@@ -85,7 +85,7 @@ def main():
            
         # PC에게 공백을 주고 lowest_number 1 current_time 순서대로 보내준다. 
         send_to_mqtt("hello/world", str(lowest_number)+" 1"+ current_time)
-        time.sleep(5)
+        time.sleep(30)
 
 if __name__ == "__main__":
     main()
