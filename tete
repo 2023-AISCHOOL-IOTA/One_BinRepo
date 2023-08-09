@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원가입</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="/signup" method="post">
+        <label for="admin_id">아이디:</label>
+        <input type="text" id="ADMIN_ID" name="ADMIN_ID" required>
+        <br>
+        <label for="admin_pw">비밀번호:</label>
+        <input type="password" id="ADMIN_PW" name="ADMIN_PW" required>
+        <br>
+        <label for="company">회사:</label>
+        <input type="text" id="COMPANY" name="COMPANY" required>
+        <br>
+        <label for="HP">전화번호:</label>
+        <input type="text" id="PH" name="PH" required>
+        <br>
+        <input type="submit" value="가입하기">
+    </form>
+</body>
+</html>
