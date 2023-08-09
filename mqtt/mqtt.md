@@ -17,7 +17,7 @@
 
 
   ---
-# Raspberry Pi 코드 ( PC로 Data 보내는 코드)
+# Raspberry Pi 코드 ( PC로 Data 보내는 코드) 
 ```python
 import boto3
 import picamera
