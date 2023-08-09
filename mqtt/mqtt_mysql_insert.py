@@ -39,7 +39,7 @@ def on_message(client, userdata, msg):
             print(Bin_level)
             print()
 
-            cur.execute("INSERT INTO BIN_TEST(BIN_COUNT,M_TIME,BIN_LEVEL) VALUES (%s, %s, %s)", (ID, Time ,Bin_level))
+            cur.execute("INSERT INTO BIN_INFO(BIN_COUNT,M_TIME,BIN_LEVEL) VALUES (%s, %s, %s)", (ID, Time ,Bin_level))
 
             # 임시 저장된 형태로, 커밋을 이용해서 확실하게 저장해줘야함
             db.commit()
@@ -51,7 +51,7 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 # Replace with your broker IP
-client.connect("192.168.20.125", 1883, 60)  
+client.connect("192.168.21.248",1883,60)   
 client.loop_forever()
 
 # DB를 모두 사용했다면 연결한 DB 닫아줘야함.
