@@ -43,7 +43,7 @@ def get_trash_capacity():
 @app.route("/")
 def index():
     capacity = get_trash_capacity()
-    return render_template("test.html", capacity=capacity)  # 템플릿 파일 이름 변경
+    return render_template("connect.html", capacity=capacity)  # 템플릿 파일 이름 변경
 
 # MQTT 클라이언트 생성
 mqtt_client = mqtt.Client()

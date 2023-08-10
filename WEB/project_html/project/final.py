@@ -103,9 +103,9 @@ def check_id_duplicate(admin_id):
         return "not_duplicate"
 
 
-@app.route('/connect')
-def connect():
-    return render_template('connect.html')
+#@app.route('/connect')
+#def connect():
+#    return render_template('connect.html')
 
 
 def get_trash_capacity():
@@ -122,6 +122,8 @@ def get_trash_capacity():
         else:
             capacity = "N/A"
 
+        print(f"Trash capacity: {capacity}")  # 로그 추가
+
         cursor.close()
         conn.close()
 
@@ -131,7 +133,7 @@ def get_trash_capacity():
         return "Error"
 
 
-@app.route("/")
+@app.route("/connect")
 def index_trash():
     capacity = get_trash_capacity()
     return render_template("connect.html", capacity=capacity)
