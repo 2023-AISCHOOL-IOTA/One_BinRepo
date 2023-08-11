@@ -95,6 +95,7 @@
 </style>
 </head>
 <body>
+    <!-- 회원가입 양식 -->
     <div class="signup-container">
         <h1>회원가입</h1>
         <form action="{{ url_for('signup') }}" method="post" onsubmit="return checkForm();">
@@ -118,8 +119,10 @@
             <input type="submit" value="가입하기">
         </form>
     </div>
+    <!-- jQuery 라이브러리를 로드-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        // 양식 제출 전에 비밀번호 확인을 실행하는 함수
         function checkForm() {
             var password = document.getElementById("ADMIN_PW").value;
             var confirmPassword = document.getElementById("confirm_password").value;
@@ -131,11 +134,13 @@
 
             return true;
         }
-
+        
+        // 아이디 중복 확인 버튼 클릭 시 처리하는 함수
         document.getElementById("checkDuplicate").addEventListener("click", function() {
             var id = document.getElementById("ADMIN_ID").value;
             var idErrorElement = document.getElementById("idError");
 
+            // 서버에 AJAX 요청을 보냅니다.
             $.ajax({
                 type: "GET",
                 url: "/check_id_duplicate/" + id,
