@@ -51,7 +51,7 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 # Replace with your broker IP
-client.connect("192.168.21.248",1883,60)   
+client.connect("broker.hivemq.com", 1883, 60)
 client.loop_forever()
 
 # DB를 모두 사용했다면 연결한 DB 닫아줘야함.
